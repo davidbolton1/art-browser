@@ -1,3 +1,18 @@
+import {createStore} from 'redux';
+import {art} from './reducers';
+import {
+    SEARCH,
+    actionSearch
+} from './actions'
+
+
+
+const store = createStore(art);
+store.subscribe(() => {
+    console.table(store.getState());
+})
+store.dispatch(actionSearch('Greece'));
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -10,3 +25,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+*/
