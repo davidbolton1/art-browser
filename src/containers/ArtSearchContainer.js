@@ -9,9 +9,9 @@ import Axios from 'axios';
 function mapDispatchToProps(dispatch) {
     return {
         handleClick: async () => {
+            dispatch(actionLoading(true))
             const results= await Axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=greece')
             console.log(results)
-            dispatch(actionLoading(true))
             dispatch(actionSearch(
                 'GREECE'
             ));
