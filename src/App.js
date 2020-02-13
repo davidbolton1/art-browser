@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
 import ArtSearch from './containers/ArtSearchContainer';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {art} from './reducers';
 import {Provider} from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
-const store = createStore(art);
+// Middlware manipulates actions before they get to the reducer
+
+// thunk lets you write actions that return functions instead of objects
+// can write multiple step dispatches
+
+const store = createStore(art, applyMiddleware(ReduxThunk));
 store.subscribe(() => {
     console.table(store.getState());
 })

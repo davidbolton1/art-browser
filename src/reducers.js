@@ -21,11 +21,11 @@ export function art(state=defaultState, action) {
                 ...state,
                 results: action.payload.results
             }
-        case LOADING:
-            return {
-                ...state,
-                isLoading: action.payload.isLoading
-            }
+        // case LOADING:
+        //     return {
+        //         ...state,
+        //         isLoading: action.payload.isLoading
+        //     }
         default:
             break;
     }
