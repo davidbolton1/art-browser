@@ -9,13 +9,15 @@ export function art(state=defaultState, action) {
         case SEARCH:
             return {
                 ...state,
-                query: action.payload.query
+                query: action.payload.query,
+                results: action.payload.results
             }
             break;
         case SELECT:
             return {
                 ...state,
-                results: action.payload.results
             }
+        default:
+            break;
     }
 }
