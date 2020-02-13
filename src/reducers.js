@@ -1,4 +1,4 @@
-import { SEARCH, SELECT } from "./actions";
+import { SEARCH, SELECT, RESULTS } from "./actions";
 
 const defaultState = {
     query: '',
@@ -10,12 +10,15 @@ export function art(state=defaultState, action) {
             return {
                 ...state,
                 query: action.payload.query,
-                results: action.payload.results
             }
-            break;
         case SELECT:
             return {
                 ...state,
+            }
+        case RESULTS:
+            return {
+                ...state,
+                results: action.payload.results
             }
         default:
             break;

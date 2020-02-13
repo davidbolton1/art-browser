@@ -2,15 +2,19 @@ import {
     connect
 } from 'react-redux';
 import ArtSearch from '../components/ArtSearch';
-import { actionSearch } from '../actions';
+import { actionSearch, actionResults } from '../actions';
+import Axios from 'axios';
 
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleClick: () => {
+        handleClick: async () => {
+            const results= await Axios.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=greece')
+            console.log(results)
             dispatch(actionSearch(
                 'GREECE'
             ));
+            dispatch(actionResults(results.data.objectIDs));
         }
     }
 }
